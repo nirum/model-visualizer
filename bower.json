@@ -1,0 +1,20 @@
+{
+  "name": "model-visualizer",
+  "version": "0.0.1",
+  "homepage": "https://github.com/nirum/model-visualizer",
+  "authors": [
+    "Niru Maheswaranathan <nirum@stanford.edu>"
+  ],
+  "description": "a web interface for visualizing model fitting results",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}
