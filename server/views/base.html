@@ -1,0 +1,34 @@
+<script type="text/x-handlebars">
+	<h1>Model visualization</h1>
+	{{#link-to 'index'}}Index{{/link-to}}
+	{{#link-to 'home'}}Home{{/link-to}}
+	{{#link-to 'models'}}Models{{/link-to}}
+	<br/>
+	{{outlet}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="home">
+	<p>
+		{{input type="text" id="new-data" placeholder="write here" value=foo }}
+		<h2>{{ foo }}</h2>
+	</p>
+</script>
+
+<script type="text/x-handlebars" data-template-name="models/index">
+	<h2>List of models</h2>
+	{{#if models.isLoaded}}
+		<ul>
+			{{#each model in models}}
+			<li>{{#link-to "models.model" model}}{{model.name}}{{/link-to}} - {{model.timestamp}}</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<p>Loading ...</p>
+	{{/if}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="models/model">
+	<h2>{{ model.name }}</h2>
+	<p>Objective: {{ model.obj }}</p>
+	<p>Date: {{ model.timestamp }}</p>
+</script>

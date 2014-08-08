@@ -21,7 +21,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.use('/', routes.index);
+app.get('/', routes.index);
+app.get('/example', routes.example);
+app.get('/api/brownian', routes.brownian);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,6 +55,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

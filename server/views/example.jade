@@ -1,0 +1,13 @@
+extends layout
+block content
+  h2 D3 examples
+
+  p Bar chart
+  svg.barchart
+
+  p Line chart
+  div.linechart
+
+  script(src='/lib/d3/d3.min.js', charset='utf-8')
+  script(src='/lib/c3/c3.min.js')
+  script(src='/js/example.js')
