@@ -24,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes.index);
 app.get('/example', routes.example);
 app.get('/api/brownian', routes.brownian);
+app.get('/expt/:id', routes.expt);
+app.get('/expt/:id/:cellidx', routes.cell);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

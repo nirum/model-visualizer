@@ -5,14 +5,13 @@ html
 
 		// CSS
 		link(rel='stylesheet', href='/lib/c3/c3.css')
+		link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/css/style.css')
 
 		// Javascript
-		//-script(src='/lib/jquery/dist/jquery.js')
-		//-script(src='/lib/handlebars/handlebars.js')
-		//-script(src='/lib/ember/ember.js')
-		//-script(src='/lib/ember-data/ember-data.js')
-		//-script(src='/js/client.js')
+		script(src='/lib/d3/d3.min.js', charset='utf-8')
+		script(src='/lib/c3/c3.min.js')
 
 	body
-		block content
+		div#container
+			block content

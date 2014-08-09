@@ -1,3 +1,23 @@
 extends layout
 block content
-	include base.html
+  div.row
+    div.col-md-12
+      h2 Model visualization
+
+  div.row
+    div.col-md-12
+      p Objective value
+      div.linechart
+
+  div.row
+    div.col-md-4
+      p Correlation coefficient (held out data)
+      div.cc
+    div.col-md-4
+      p Negative log-likelihood (held out data, lower is better)
+      div.nll
+    div.col-md-4
+      p Log-likelihood difference (from mean rate) (held out data, lower is better)
+      div.lld
+
+  script(src='/js/modelvisualization.js')

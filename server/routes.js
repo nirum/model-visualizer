@@ -1,6 +1,7 @@
+/* express */
 var express = require('express')
 	, router = express.Router()
-	, models = require('./models')
+  , Expt = require('../database')
   , stoch = require('stochastic');
 
 /* GET home page. */
@@ -29,4 +30,17 @@ exports.brownian = function(req, res) {
   // send data
   res.json(data);
 
+}
+
+/* Model fitting results */
+exports.expt = function(req, res) {
+  Expt.find({'expt': req.params.id}, function(err,data) {
+    res.json(data);
+  });
+}
+
+exports.cell = function(req, res) {
+  Expt.findOne({'expt': req.params.id, 'cellidx': req.params.cellidx}, function(err,data) {
+    res.json(data);
+  });
 }
