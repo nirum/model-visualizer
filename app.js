@@ -22,8 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/', routes.index);
-app.get('/example', routes.example);
-app.get('/api/brownian', routes.brownian);
 app.get('/expt/:id', routes.expt);
 app.get('/expt/:id/:cellidx', routes.cell);
 

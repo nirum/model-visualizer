@@ -23,29 +23,53 @@ var update = function(expt) {
       cc[i]   = ["Cell " + models[i].cellidx].concat(models[i].corrcoef);
       nll[i]  = ["Cell " + models[i].cellidx].concat(models[i].neg_loglikelihood);
       lld[i]  = ["Cell " + models[i].cellidx].concat(models[i].loglikelihood_difference);
+
+      if (i == models.length-1) {
+        $("#loading").attr("style", "display: none");
+      }
     }
 
     c3.generate({
-      bindto: '.linechart',
-      data: {'columns': fobj}
+      bindto: '#objective',
+      data: {'columns': fobj},
+      axis: { 
+        y: { label: { text: 'Objective', position: 'outer-middle' } }
+      }
     });
 
     c3.generate({
-      bindto: '.cc',
-      data: {'columns': cc}
+      bindto: '#cc',
+      data: {'columns': cc},
+      axis: { 
+        y: { label: { text: 'Corr. Coeff.', position: 'outer-middle' } }
+      }
     });
 
     c3.generate({
-      bindto: '.nll',
-      data: {'columns': nll}
+      bindto: '#nll',
+      data: {'columns': nll},
+      axis: { 
+        y: { label: { text: 'Neg. Log-likelihood', position: 'outer-middle' } }
+      }
     });
 
     c3.generate({
-      bindto: '.lld',
-      data: {'columns': lld}
+      bindto: '#lld',
+      data: {'columns': lld},
+      axis: { 
+        y: { label: { text: 'Log-likelihood improvement', position: 'outer-middle' } }
+      }
     });
 
   });
 };
 
-update('073014b');
+// event listeners
+$("#update").click(function() {
+
+  // show loading
+  $("#loading").attr("style", "display: block");
+  update($("#expt").val());
+  //$("#loading").attr("style", "display: none");
+
+});

@@ -5,19 +5,34 @@ block content
       h2 Model visualization
 
   div.row
-    div.col-md-12
+
+    div.col-md-4
+      h3 Options
+      p
+        form
+
+          div.form-group
+            span Choose an experiment:
+            select.form-control#expt
+              each item in expts
+                option= item
+
+          button(type="button").btn.btn-primary.btn-sm#update Update
+          span#loading(style="display: none") Loading...
+
+    div.col-md-8
       p Objective value
-      div.linechart
+      div#objective
 
   div.row
     div.col-md-4
       p Correlation coefficient (held out data)
-      div.cc
+      div#cc
     div.col-md-4
       p Negative log-likelihood (held out data, lower is better)
-      div.nll
+      div#nll
     div.col-md-4
       p Log-likelihood difference (from mean rate) (held out data, lower is better)
-      div.lld
+      div#lld
 
   script(src='/js/modelvisualization.js')
