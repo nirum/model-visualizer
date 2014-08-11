@@ -1,5 +1,6 @@
 /* get dat */
 var update = function(expt) {
+
   d3.json('/expt/' + expt, function(models) {
 
     // add data for each model
@@ -25,8 +26,10 @@ var update = function(expt) {
       lld[i]  = ["Cell " + models[i].cellidx].concat(models[i].loglikelihood_difference);
 
       if (i == models.length-1) {
-        $("#loading").attr("style", "display: none");
+        $("#update").prop("disabled", false);
+        $("#update").html("Update");
       }
+
     }
 
     c3.generate({
@@ -67,9 +70,9 @@ var update = function(expt) {
 // event listeners
 $("#update").click(function() {
 
-  // show loading
-  $("#loading").attr("style", "display: block");
+  // show loading bar, hide update button
+  $("#update").prop("disabled", true);
+  $("#update").html("Loading...");
   update($("#expt").val());
-  //$("#loading").attr("style", "display: none");
 
 });

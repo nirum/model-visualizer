@@ -4,10 +4,14 @@ block content
     div.col-md-12
       h2 Model visualization
 
+  div.row.border-bottom
+    div.col-md-12
+      p asdf
+
   div.row
 
     div.col-md-4
-      h3 Options
+      h4 Options
       p
         form
 
@@ -17,8 +21,7 @@ block content
               each item in expts
                 option= item
 
-          button(type="button").btn.btn-primary.btn-sm#update Update
-          span#loading(style="display: none") Loading...
+          button#update.btn.btn-primary.btn-sm(type="button") Update
 
     div.col-md-8
       p Objective value
@@ -32,7 +35,7 @@ block content
       p Negative log-likelihood (held out data, lower is better)
       div#nll
     div.col-md-4
-      p Log-likelihood difference (from mean rate) (held out data, lower is better)
+      p Log-likelihood difference (from mean rate) (held out data, higher is better)
       div#lld
 
   script(src='/js/modelvisualization.js')

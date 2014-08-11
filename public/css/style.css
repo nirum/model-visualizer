@@ -24,3 +24,9 @@ a {
 	font: 10px sans-serif;
 	text-anchor: end;
 }
+
+.border-bottom {
+	margin-bottom: 25px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}

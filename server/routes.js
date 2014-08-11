@@ -8,7 +8,7 @@ var express = require('express')
 exports.index = function(req, res) {
 	// get list of expt names
 	Expt.find({}, 'expt', function(err,data) {
-		var expts = _.map(data, function(item) { return item['expt']; });
+		var expts = _.uniq(_.map(data, function(item) { return item['expt']; }));
   	res.render('index', {'expts': expts});
 	});
 };
