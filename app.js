@@ -4,13 +4,27 @@ var express = require('express')
     , logger = require('morgan')
     , cookieParser = require('cookie-parser')
     , bodyParser = require('body-parser')
-    , routes = require('./server/routes');
+  	, exphbs = require('express-handlebars')
+  	, moment = require('moment')
+    , routes = require('./routes/index');
 
 var app = express();
 
+// handlebars helpers
+var hbsHelpers = {
+  formatDate: function(mydate) {
+    return moment(mydate).format("MMM DD, YYYY hh:mm:ss A");
+  }
+};
+
 // view engine setup
-app.set('views', path.join(__dirname, 'server/views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  partialsDir: ['views/partials/'],
+  helpers: hbsHelpers
+}));
+app.set('view engine', 'handlebars');
 
 // Middleware
 app.use(favicon());
@@ -21,9 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.get('/', routes.index);
-app.get('/expt/:id', routes.expt);
-app.get('/expt/:id/:cellidx', routes.cell);
+app.use('/', routes);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

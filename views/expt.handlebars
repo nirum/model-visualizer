@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="/#">Home</a></li>
+			<li class="active"><a href="/{{name}}">{{name}}</a></li>
+		</ol>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<h3>Experiment info for {{name}}</h3>
+		<hr/>
+
+		<table class="table-striped table-condensed table-bordered">
+			<tr>
+				<th>Cell #</th>
+				<th>Model type</th>
+				<th>Description</th>
+				<th>Timestamp</th>
+			</tr>
+			{{#expts}}
+			<tr>
+				<td><a href="/{{../name}}/{{cellidx}}">{{cellidx}}</a></td>
+				<td>{{modeltype}}</td>
+				<td>{{desc}}</td>
+				<td>{{formatDate timestamp}}</td>
+			</tr>
+			{{/expts}}
+		</table>
+	</div>
+</div>
